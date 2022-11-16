@@ -28,6 +28,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/studydb?serverTimezone=UTC"></property>
+		<!-- name 속성에는 변수명이 아니고 세터함수의 이름이 온다. 그래서 SetUsername여서 username -->
 		<property name="username" value="study"></property>
 		<property name="password" value="!ezen1234"></property>
 	</bean>

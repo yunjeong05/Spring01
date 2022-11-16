@@ -28,7 +28,8 @@ public class BoardServiceImpl implements BoardService {
 //			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
 //		}
 	
-		boardDAO.insertBoard(boardVO);
+		boardDAO.insertBoard(boardVO); 
+		boardDAO.insertBoard(boardVO); //rollback되서 100이 삽입되지 않는다. 
 	}
 	
 	@Override

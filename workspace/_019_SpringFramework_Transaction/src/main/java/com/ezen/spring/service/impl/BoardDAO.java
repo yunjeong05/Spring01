@@ -20,8 +20,8 @@ public class BoardDAO {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	//SQL 쿼리
-	private final String BOARD_INSERT = "INSERT INTO BOARD VALUES((select IFNULL(MAX(A.BOARD_NO),0)+1 FROM BOARD A),?,?,?,now(),0)";
+	//SQL 쿼리                                                    (select IFNULL(MAX(A.BOARD_NO),0)+1 FROM BOARD A)
+	private final String BOARD_INSERT = "INSERT INTO BOARD VALUES(?,?,?,?,now(),0)";
 	private final String BOARD_UPDATE = "UPDATE BOARD SET BOARD_TITLE = ?, BOARD_CONTENT = ? , BOARD_WRITER = ? where BOARD_NO = ?";
 	private final String BOARD_DELETE = "DELETE FROM BOARD WHERE BOARD_NO = ?";
 	private final String BOARD_GET = "SELECT * FROM BOARD WHERE BOARD_NO = ? ";
@@ -32,7 +32,7 @@ public class BoardDAO {
 	public void insertBoard(BoardVO boardVO) {
 		System.out.println("JDBC로 insertBoard 기능구현");
 		
-		jdbcTemplate.update(BOARD_INSERT, boardVO.getBoardTitle(), boardVO.getBoardContent(), boardVO.getBoardWriter());
+		jdbcTemplate.update(BOARD_INSERT,boardVO.getBoardNo(),boardVO.getBoardTitle(), boardVO.getBoardContent(), boardVO.getBoardWriter());
 	}
 	// 글 수정
 	public void updateBoard(BoardVO boardVO) {

@@ -79,6 +79,7 @@
 \</bean\>
 - <b> 예제 프로젝트 : _007_SpringFramework_DI_Constructor</b>  
 - <b> 예제 프로젝트 : _008_SpringFramework_DI_Constructor_Interface</b>  
+
 3. 세터함수를 이용한 DI 
 - 의존성을 주입할 객체에 해당 멤버변수(속성)에 해당하는 세터함수를 미리 작성한다.
 - \<property\> 엘리먼트를 사용하여 해당 세터함수를 호출 
