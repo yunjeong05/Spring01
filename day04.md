@@ -172,3 +172,5 @@ BoardVO [boardNo=0, boardTitle=null, boardContent=null, boardWriter=null, BoardR
 
 - JDBC Template을  bean 객체로 등록 (11월 16일 수업)
 - <b>예제 프로젝트: _018_SpringFramework_AOP_JDBCTemplate</b> .. 내용 수정함...
+
+JDBC 템플릿을 빈으로 만들어사 사용하는 방법

@@ -30,6 +30,12 @@
 		<property name="password" value="!ezen1234"></property>
 	</bean>
 	
+	<!-- JDBC Template bean 객체로 등록 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+								<!-- value 대신 ref로 작성 // 탬플릿이 만들어진 상댄-->
+		<property name="dataSource" ref="dataSource"></property>
+		
+	</bean>
 		
 	<!-- bean 객체 생성 -->
 	<!-- 컨테이너가 구동되면서 자동으로 생성 -->
