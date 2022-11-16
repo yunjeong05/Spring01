@@ -25,9 +25,24 @@
   <doctype 지정>
   <mapper 설정(namespace)>
     <select id="select"></select>
-    <insert></insert>
-    <update></update>
-    <delete></delete>
+    <insert id=""></insert>
+    <update id=""></update>
+    <delete id=""></delete>
   </mapper>
                             //mapper의 select의 id (실제로는 이렇게 사용하지 않고 MyBatis의 기능을 이용하는 편이다.)
   DAO에서 쿼리 호출 시 이런 식으로 "namespace.select " 이름을 호출해야 제대로 실행 된다. 
+  // #{} -> mapper에서 변수를 빼오는 방식
+  <b>예제 프로젝트: _020_SpringFramework_MyBatis</b>
+
+  3. 동적쿼리 (Dynamic Query)
+  - 조건에 따라서 쿼리를 선택하여 사용
+  <if>, <foreach>, <choose> <when></when><otherwise></otherwise></choose>
+
+  where은 항상 밖으로 빼서 작성 후 
+  <if></if> and 나 or로 연결한다.
+
+  //
+  JDBC로 insertBoard 기능구현
+  JDBC로 insertBoard 기능구현 -> BoardServiceImpl에 2개여서 2번 출력 됨 주석처리함
+  JDBC getBoardList 기능구현
+  BoardVO [boardNo=1, boardTitle=가입인사, boardContent=잘 부탁드립니다., boardWriter=관리자, BoardRegdate=2022-11-14, BoardCnt=0]

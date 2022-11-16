@@ -20,7 +20,7 @@ public class BoardServiceTest {
 		// 3. 글 등록 테스트 
 		BoardVO boardVO = new BoardVO();
 		boardVO.setBoardNo(100); // insert문 ?로 바꾸면서 번호 100번 추가
-		boardVO.setBoardTitle("제목12");
+		boardVO.setBoardTitle("제목13");
 		boardVO.setBoardContent("등록");
 		boardVO.setBoardWriter("관리자");
 		

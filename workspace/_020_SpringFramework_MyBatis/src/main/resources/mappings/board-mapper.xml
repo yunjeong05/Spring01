@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 보편적으로 사용하는 방법 꼭 그런 건 아님 -->
+<mapper namespace="BoardDAO">
+	<!-- 쿼리작성 영역 -->
+	<!--                     파라미터 파입에 원래 com.ezen.spring.vo.BoardVO 작성 그러나 별칭으로 대채 가능-->
+	<insert id="insertBoard" parameterType="board">
+		INSERT INTO BOARD 
+		VALUES(
+			(SELECT IFNULL(MAX(A.BOARD_NO),0) + 1 FROM BOARD A), 
+			#{boardTitle},
+			#{boardContent},
+			#{boardWriter},
+			now(),
+			0 
+		     )		
+	</insert>
+	
+	<!-- #{} : 변수 빼오는 방식//  resultType : 리턴 타입있을 때(select)-->
+	
+	<update id="updateBoard" parameterType="board">
+		UPDATE BOARD 
+			SET BOARD_TITLE = #{BoardTitle}, 
+				BOARD_CONTENT = #{BoardContent},
+				BOARD_WRITER = #{BoardWirther}
+			where BOARD_NO = #{BoardNO}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		DELETE 
+			FROM BOARD 
+			WHERE BOARD_NO = #{BoardNO}
+	</delete>
+	
+	<select id="getBoard" parameterType="board" resultType="board">
+		SELECT * 
+			FROM BOARD 
+			WHERE BOARD_NO = #{BoardNO}
+	</select>
+	
+	<select id="getBoardList" parameterType="board" resultType="board">
+		SELECT * 
+		FROM BOARD
+		<!-- WHERE 1=1  항상 참이라서 if조건절을 실행  -->
+		WHERE 1=1 
+		<if test="searchKeyword !=null and !searchKeyword.equals('')">
+			AND BOARD_TITLE LIKE CONCAT('%', #{searchKeyword},'%')
+		</if> 
+	</select>
+</mapper>
